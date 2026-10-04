@@ -16,8 +16,8 @@ export const DEFAULT_QUALITY = "standard";
 
 /**
  * The `standard` preset is the same configuration that `-dPDFSETTINGS=/prepress`
- * expands to (300 dpi, JPEG QFactor 0.15), i.e. exactly what the `shrinkpdf`
- * shell function runs. The others trade resolution and JPEG quality for size.
+ * expands to (300 dpi, JPEG QFactor 0.15). The others trade resolution and
+ * JPEG quality for size.
  */
 export const QUALITIES: Quality[] = [
   {
@@ -31,7 +31,7 @@ export const QUALITIES: Quality[] = [
   {
     id: "standard",
     label: "Standard",
-    hint: "300 dpi — the shrinkpdf default, and fine for almost everything.",
+    hint: "300 dpi — balanced quality and size, fine for almost everything.",
     dpi: 300,
     qfactor: 0.15,
     downsample: true,
@@ -39,7 +39,7 @@ export const QUALITIES: Quality[] = [
   {
     id: "high",
     label: "High",
-    hint: "600 dpi — step up here if fine or scanned text looks soft.",
+    hint: "600 dpi — step up here if text or images look muddy or fuzzy.",
     dpi: 600,
     qfactor: 0.1,
     downsample: true,

@@ -1,7 +1,7 @@
 # PDF Shrinker
 
 A small [Deno Fresh](https://fresh.deno.dev) app that shrinks PDFs with
-Ghostscript, using the same settings as the `shrinkpdf` fish function.
+Ghostscript.
 
 - **Uploads are ephemeral.** The uploaded file is written to a temp directory,
   converted, and deleted immediately after conversion.
@@ -17,20 +17,19 @@ Ghostscript, using the same settings as the `shrinkpdf` fish function.
 Ghostscript's `-dPDFSETTINGS` presets are applied when the device opens and
 can't be overridden by later `-d` flags, so the app spells the distiller
 parameters out explicitly. The **Standard** preset is exactly what
-`-dPDFSETTINGS=/prepress` expands to (300 dpi, JPEG QFactor 0.15) — the same as
-the shell function.
+`-dPDFSETTINGS=/prepress` expands to (300 dpi, JPEG QFactor 0.15).
 
 | Preset       | Resolution    | JPEG QFactor | Notes                                   |
 | ------------ | ------------- | ------------ | --------------------------------------- |
 | **Smallest** | 150 dpi       | 0.40         | Lightest file, good for on-screen reads |
-| **Standard** | 300 dpi       | 0.15         | The `shrinkpdf` default                 |
+| **Standard** | 300 dpi       | 0.15         | Balanced default                        |
 | **High**     | 600 dpi       | 0.10         | For soft fine/scanned text              |
 | **Maximum**  | no downsample | 0.05         | Keeps original image detail             |
 
 300 dpi is fine for almost everything. These settings only affect embedded
 images — vector text is left as text, so it stays crisp at every level. If a
-scanned page or a fine-print image looks soft, step up one level; the file gets
-bigger and the detail comes back.
+scanned page or a fine-print image looks muddy or fuzzy, step up one level; the
+file gets bigger and the detail comes back.
 
 ## Local development
 

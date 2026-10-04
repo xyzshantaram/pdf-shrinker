@@ -150,7 +150,7 @@ export default function Shrinker() {
             <span class="dz-text">
               <span class="dz-title">{file.value.name}</span>
               <span class="dz-sub">
-                {formatBytes(file.value.size)} — tap to choose another
+                {formatBytes(file.value.size)} PDF — tap to choose another
               </span>
             </span>
           )
@@ -182,8 +182,8 @@ export default function Shrinker() {
         </div>
         <p class="quality-hint">{selected.hint}</p>
         <p class="quality-note">
-          Higher settings make bigger files — step up only if the text looks
-          soft.
+          Higher settings make bigger files — step up only if text or images
+          look muddy or fuzzy.
         </p>
       </div>
 
@@ -214,15 +214,19 @@ export default function Shrinker() {
             <div class="stats">
               <span class="stat">
                 <b>{formatBytes(result.value.originalBytes)}</b>
-                <small>before</small>
+                <small>original</small>
               </span>
               <span class="arrow" aria-hidden="true">→</span>
               <span class="stat">
                 <b>{formatBytes(result.value.shrunkBytes)}</b>
-                <small>after</small>
+                <small>shrunk</small>
               </span>
               {savedPct > 0
-                ? <span class="saved">−{savedPct}%</span>
+                ? (
+                  <span class="saved">
+                    saved {savedPct}% · {formatBytes(result.value.savedBytes)}
+                  </span>
+                )
                 : <span class="saved is-muted">already compact</span>}
             </div>
             <a

@@ -23,8 +23,7 @@ export default define.page(function Home() {
         </header>
         <Shrinker />
         <footer class="foot">
-          Runs server-side with Ghostscript &mdash; the same settings as the
-          <code>shrinkpdf</code> shell function.
+          Runs server-side with Ghostscript.
         </footer>
       </main>
     </>
