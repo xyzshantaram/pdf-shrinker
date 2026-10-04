@@ -1,0 +1,6 @@
+.git
+.commandcode
+_fresh
+node_modules
+vendor
+*.log
